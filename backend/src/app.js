@@ -1,8 +1,8 @@
-import express from "express";
+import {Router} from "express";
 import authRouter from "./features/auth/auth.routes.js";
 import { errorHandler } from "./middleware/error.middleware.js";
 
-const app = express();
+const app = Router();
 
 app.use(express.json());
 
