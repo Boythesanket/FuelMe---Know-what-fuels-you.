@@ -14,7 +14,7 @@ import * as sessionRepo from "../session/session.repo.js";
 import { hashToken } from "../../config/constants/token.js";
 
 // user register service
-export const register = async ({ fullName, email, password }) => {
+export const register = async ({ fullName, email, password, sessionInfo }) => {
   const existingUser = await userRepo.findUserByEmail(email);
 
   if (existingUser) {

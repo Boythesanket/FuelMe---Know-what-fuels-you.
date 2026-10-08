@@ -1,5 +1,5 @@
 import { eq } from "drizzle-orm";
-import { db } from "../../db";
+import { db } from "../../db/index.js";
 import { sessionTable } from "../../db/schema/session.schema.js";
 
 export const createSession = async ({

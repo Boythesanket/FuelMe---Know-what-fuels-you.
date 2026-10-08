@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "../../db/index.js";
-import userTable from "../../db/schema/user.schema.js";
+import {userTable} from "../../db/schema/user.schema.js";
 
 export const findUserByEmail = async (email) => {
   const [user] = await db
