@@ -37,8 +37,10 @@ export const register = async ({ fullName, email, password, sessionInfo }) => {
     expiresAt,
   });
 
+  // accessToken to keep the session active for 15 minutes only.
   const accessToken = generateAccessToken(user);
-
+  
+  // refreshToken to keep the session active for 30 days.
   const refreshToken = generateRefreshToken(user, session);
 
   const hashedRefreshToken = hashToken(refreshToken);
