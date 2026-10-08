@@ -4,11 +4,12 @@ import {
   accessCookieOptions,
   refreshTokenOptions,
 } from "../../config/constants/cookie.js";
+import { wrapAsync } from "../../utils/wrapAsync.js";
 
 //
 // USER REGISTER CONTROLLER
 //
-export const userRegister = async (req, res) => {
+export const userRegister = wrapAsync(async (req, res) => {
   const { user, accessToken, refreshToken } = await authService.register({
     ...req.body,
     sessionInfo: {
@@ -26,12 +27,12 @@ export const userRegister = async (req, res) => {
     message: "User registered successfully.",
     data: user,
   });
-};
+});
 
 //
 // USER LOGIN CONTROLLER
 //
-export const userLogin = async (req, res) => {
+export const userLogin = wrapAsync(async (req, res) => {
   const { user, accessToken, refreshToken } = await authService.login({
     ...req.body,
     sessionInfo: {
@@ -49,12 +50,12 @@ export const userLogin = async (req, res) => {
     message: "Logged in successfully.",
     data: user,
   });
-};
+});
 
 //
 // REFRESH TOKEN CONTROLLER
 //
-export const refreshToken = async (req, res) => {
+export const refreshToken = wrapAsync(async (req, res) => {
   const { accessToken, refreshToken } = authService.refreshToken(
     req.cookies.refreshToken,
   );
@@ -67,12 +68,12 @@ export const refreshToken = async (req, res) => {
     success: true,
     message: "Token refreshed.",
   });
-};
+});
 
 //
 // USER LOGOUT CONTROLLER
 //
-export const userLogout = async (req, res) => {
+export const userLogout = wrapAsync(async (req, res) => {
   await authService.logout(req.cookies.refreshToken);
 
   res.clearCookie("accessToken", accessCookieOptions);
@@ -83,4 +84,4 @@ export const userLogout = async (req, res) => {
     success: true,
     message: "Logged out successfully.",
   });
-};
+});
