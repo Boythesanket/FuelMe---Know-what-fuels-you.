@@ -1,6 +1,13 @@
 import { HTTP_STATUS } from "../../config/constants/httpStatus.js";
 import * as authService from "./auth.service.js";
+import {
+  accessCookieOptions,
+  refreshTokenOptions,
+} from "../../config/constants/cookie.js";
 
+//
+// USER REGISTER CONTROLLER
+//
 export const userRegister = async (req, res) => {
   const { user, accessToken, refreshToken } = await authService.register({
     ...req.body,
@@ -10,9 +17,9 @@ export const userRegister = async (req, res) => {
     },
   });
 
-  res.cookie("accessToken", accessToken);
+  res.cookie("accessToken", accessToken, accessCookieOptions);
 
-  res.cookie("refreshToken", refreshToken);
+  res.cookie("refreshToken", refreshToken, refreshTokenOptions);
 
   res.status(HTTP_STATUS.OK).json({
     success: true,
@@ -21,6 +28,9 @@ export const userRegister = async (req, res) => {
   });
 };
 
+//
+// USER LOGIN CONTROLLER
+//
 export const userLogin = async (req, res) => {
   const { user, accessToken, refreshToken } = await authService.login({
     ...req.body,
@@ -30,9 +40,9 @@ export const userLogin = async (req, res) => {
     },
   });
 
-  res.cookie("accessToken", accessToken);
+  res.cookie("accessToken", accessToken, accessCookieOptions);
 
-  res.cookie("refreshToken", refreshToken);
+  res.cookie("refreshToken", refreshToken, refreshTokenOptions);
 
   res.status(HTTP_STATUS.OK).json({
     success: true,
@@ -41,14 +51,17 @@ export const userLogin = async (req, res) => {
   });
 };
 
+//
+// REFRESH TOKEN CONTROLLER
+//
 export const refreshToken = async (req, res) => {
   const { accessToken, refreshToken } = authService.refreshToken(
     req.cookies.refreshToken,
   );
 
-  res.cookie("accessToken", accessToken);
+  res.cookie("accessToken", accessToken, accessCookieOptions);
 
-  res.cookie("refreshToken", refreshToken);
+  res.cookie("refreshToken", refreshToken, refreshTokenOptions);
 
   res.status(HTTP_STATUS.OK).json({
     success: true,
@@ -56,12 +69,15 @@ export const refreshToken = async (req, res) => {
   });
 };
 
+//
+// USER LOGOUT CONTROLLER
+//
 export const userLogout = async (req, res) => {
   await authService.logout(req.cookies.refreshToken);
 
-  res.clearCookie("accessToken");
+  res.clearCookie("accessToken", accessCookieOptions);
 
-  res.clearCookie("refreshToken");
+  res.clearCookie("refreshToken", refreshTokenOptions);
 
   res.status(HTTP_STATUS.OK).json({
     success: true,
