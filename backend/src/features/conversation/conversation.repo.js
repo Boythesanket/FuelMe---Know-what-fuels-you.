@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { db } from "../../db/index.js";
 import { conversationTable } from "../../db/schema/conversation.schema.js";
 
@@ -20,9 +20,16 @@ export const findConversation = async (userId) => {
   return conversation;
 };
 
-export const findConversationById = async (conversationId) => {
+export const findConversationById = async (conversationId, userId) => {
   const [conversation] = await db
     .select()
     .from(conversationTable)
-    .where(eq(conversationTable.id, conversationId));
+    .where(
+      and(
+        eq(conversationTable.id, conversationId),
+        eq(conversationTable.userId, userId),
+      ),
+    );
+
+  return conversation;
 };
