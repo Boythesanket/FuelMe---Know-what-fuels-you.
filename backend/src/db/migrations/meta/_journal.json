@@ -8,6 +8,13 @@
       "when": 1791485965547,
       "tag": "0000_unusual_smasher",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791761688183,
+      "tag": "0001_clever_nightcrawler",
+      "breakpoints": true
     }
   ]
 }
