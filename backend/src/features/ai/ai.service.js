@@ -1,13 +1,18 @@
 import "dotenv/config";
-import { GoogleGenAI } from "@google/genai";
+import Groq from "groq-sdk";
 
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API,
+const groq = new Groq({
+  apiKey: process.env.GROQ_API,
 });
 
-const interactions = await ai.interactions.create({
-  model: "gemini-3.6-flash",
-  input: "What is node js?",
+const response = await groq.chat.completions.create({
+  model: "openai/gpt-oss-20b",
+  messages: [
+    {
+      role: "user",
+      content: "i ate 5 rotis, half plate khichdi, sev sabzi. how much calories, protein i got?",
+    },
+  ],
 });
 
-console.log(interactions.output_text);
+console.log(response.choices[0].message.content);
