@@ -3,7 +3,7 @@ import { saveMessage } from "./chats.service.js";
 
 export const createChat = async (req, res) => {
   const { conversationId, content } = req.body;
-  const userId = req.user;
+  const userId = req.user.sub;
 
   const chat = await saveMessage(conversationId, content, userId);
 

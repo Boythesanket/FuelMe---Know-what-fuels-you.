@@ -3,7 +3,7 @@ import * as conversationService from "./conversation.service.js";
 
 export const findOrCreateConversation = async (req, res) => {
   const { conversationId } = req.body;
-  const userId = req.user;
+  const userId = req.user.sub;
 
   const conversation = await conversationService.findOrCreateConversation(
     userId,

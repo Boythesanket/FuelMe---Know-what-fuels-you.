@@ -1,4 +1,4 @@
-import { db } from "../../db";
+import { db } from "../../db/index.js";
 import { chatTable } from "../../db/schema/chat.schema.js";
 
 export const createChat = async (conversationId, content, role) => {
