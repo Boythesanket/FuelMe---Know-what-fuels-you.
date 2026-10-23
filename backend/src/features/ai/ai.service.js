@@ -1,18 +1,19 @@
-import "dotenv/config";
+import "dotenv/config"
 import Groq from "groq-sdk";
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API,
 });
 
-const response = await groq.chat.completions.create({
-  model: "openai/gpt-oss-20b",
-  messages: [
-    {
-      role: "user",
-      content: "i ate 5 rotis, half plate khichdi, sev sabzi. how much calories, protein i got?",
-    },
-  ],
-});
+async function main() {
+  const chatCompletion = await groq.chat.completions.create({
+    messages: [
+      { role: "user", content: "Explain why low latency LLMs are important." },
+    ],
+    model: "openai/gpt-oss-20b",
+  });
 
-console.log(response.choices[0].message.content);
+  console.log(chatCompletion.choices[0].message.content);
+}
+
+main();
