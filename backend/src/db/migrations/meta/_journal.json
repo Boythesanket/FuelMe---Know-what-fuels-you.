@@ -15,6 +15,13 @@
       "when": 1791761688183,
       "tag": "0001_clever_nightcrawler",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792730397399,
+      "tag": "0002_lethal_tenebrous",
+      "breakpoints": true
     }
   ]
 }
