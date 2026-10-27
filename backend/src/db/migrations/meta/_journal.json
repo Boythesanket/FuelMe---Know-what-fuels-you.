@@ -22,6 +22,34 @@
       "when": 1792730397399,
       "tag": "0002_lethal_tenebrous",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793108101985,
+      "tag": "0003_even_loa",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793108238821,
+      "tag": "0004_green_iceman",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793108316931,
+      "tag": "0005_third_spiral",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793108387938,
+      "tag": "0006_aspiring_baron_strucker",
+      "breakpoints": true
     }
   ]
 }

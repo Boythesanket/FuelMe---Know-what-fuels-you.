@@ -3,7 +3,7 @@ import axios from "axios";
 import https from "node:https";
 import { db } from "../../db/index.js";
 import { foodTable } from "../../db/schema/food.schema.js";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 
 const httpsAgent = new https.Agent({
   family: 4,

@@ -1,7 +1,7 @@
-import { getFoodDetails, searchFoods } from "./food.service.js";
+import { getFoodDetails, saveOrGetFood, searchFoods } from "./food.service.js";
 
-const results = await searchFoods("banana");
-console.log(results);
+const results = await searchFoods("mutton");
+// console.log(results);
 
-const food = await getFoodDetails(171116);
-// console.log(food);
+const food = await saveOrGetFood(167634);
+console.log(food);

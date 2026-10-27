@@ -1,0 +1,1 @@
+ALTER TABLE "foods" ADD COLUMN "protein_per_100g" numeric(8, 2) NOT NULL;
