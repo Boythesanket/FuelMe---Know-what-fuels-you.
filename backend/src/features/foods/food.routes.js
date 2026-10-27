@@ -1,8 +1,9 @@
 import express from "express";
+import { searchFoods } from "./food.controller.js";
 const foodRouter = express.Router();
 
-foodRouter.get("/search")
+foodRouter.get("/search", searchFoods);
 
-foodRouter.get("/:fdcId")
+// foodRouter.get("/:fdcId");
 
-export default foodRouter
+export default foodRouter;

@@ -11,7 +11,7 @@ const httpsAgent = new https.Agent({
 
 const USDA_BASE_URL = "https://api.nal.usda.gov/fdc/v1";
 
-export const searchFoods = async (query) => {
+export const searchFoodsService = async (query) => {
   if (!query?.trim()) {
     throw new Error("Search query is required.");
   }

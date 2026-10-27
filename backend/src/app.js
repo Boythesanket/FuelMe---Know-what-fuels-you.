@@ -6,6 +6,7 @@ const app = express();
 import cookieParser from "cookie-parser";
 import conversationRouter from "./features/conversation/conversation.routes.js";
 import chatRouter from "./features/chats/chats.routes.js";
+import foodRouter from "./features/foods/food.routes.js";
 
 app.use(express.json());
 app.use(cookieParser());
@@ -22,6 +23,9 @@ app.use("/api/conversation", conversationRouter);
 
 // CHAT ROUTE
 app.use("/api/chat", chatRouter);
+
+// FOOD ROUTE
+app.use("/api/foods", foodRouter);
 
 // GLOBAL ERROR HANDLER
 app.use(errorHandler);
