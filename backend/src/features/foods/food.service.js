@@ -38,7 +38,6 @@ export const searchFoods = async (query) => {
 };
 
 // GET FOOD BY ID
-
 export const getFoodDetails = async (fdcId) => {
   const response = await axios.get(`${USDA_BASE_URL}/food/${fdcId}`, {
     params: {
