@@ -51,7 +51,7 @@ export const getFoodDetails = async (fdcId) => {
   });
 
   const food = response.data;
-  console.log(food);
+  console.dir(food)
   
   const getNutrient = (nutrientNumber) => {
     const nutrient = food.foodNutrients.find(
